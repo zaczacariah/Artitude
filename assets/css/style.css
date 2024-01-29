@@ -91,3 +91,9 @@ header{
   color: var(--black-color);
   font-family:var(--font-base);
 }
+
+.modal-image{
+  border-radius: 30px;
+  max-width:250px;
+  max-height:250px;
+}
