@@ -8,17 +8,45 @@
     <script src="./assets/js/script.js"></script>
     <link rel="stylesheet" href="./assets/css/style.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+
   </head>
   <body>
-  <section class="section">
-    <div class="container">
-      <h1 class="title"> 
-        Hello World
-      </h1>
-      <p class="subtitle">
-        My first website with <strong>Bulma</strong>!
+
+    <header class="level">
+      <p class="level-item has-text-centered">
+        <img src="./assets/images/icon.png" alt="" class="image is-48x48">
+        <a class="header is-size-3"> Artitude</a>
+
       </p>
+    </header>
+    <div class="hero-image">
+      <div class="hero-text">
+        <h2 class="is-size-1 has-text-centered py-6">Discover Unique International Art</h2>
+        <button class="button is-white">Explore Now</button>
+      </div>
     </div>
-  </section>
+    <section class="container-box">
+      <article class="intro">
+        <div class="block">
+          <h2 class="is-size-5">Search Through Our Database of Art</h2>
+          <br>
+          <p>Welcome to Artitude, your digital gateway to a world of art and creativity. 
+          Attitude showcases a diverse and vibrant collection of artworks, 
+          offering you a unique window into the rich tapestry of global artistry. 
+          Each piece of art displayed is accompanied by insightful information about the artist 
+          and their country of origin, bringing you closer to the heart and soul of their work.</p>
+        </div>
+        <div class="block">
+          <img class="image"src="./assets/images/1_EVbrtDK4ga9IfcfdPsa6_Q.webp" alt="artwork">
+        </div>
+      </article>
+    </section>
+    <section class="container">
+      <h2 class="is-size-1 has-text-centered">Artwork Search</h2>
+      <input class="fliter" type="text" placeholder="Vincent Van Gogh">
+      <a id="search">Search</a>
+        <div class="result-box">
+        </div>
+    </section>
   </body>
 </html>
