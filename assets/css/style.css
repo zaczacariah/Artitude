@@ -17,3 +17,63 @@
   margin: 0;
   scroll-behavior: smooth;
 }
+
+body{
+  margin:0;
+}
+
+.level {
+  background-color: var(--primary-color);
+  height: 80px;
+  padding: 0;
+  margin: 0; 
+}
+
+.level img{
+  margin-right: 15px;
+}
+
+.level a{
+  color: var(--secondary-color);
+  font-family: var(--font-base);
+}
+.level:not(:last-child){
+  margin: 0; /* Add this line to reset margin */
+}
+
+.hero-image{
+  background-image: url(../images/hero.png);
+  background-repeat: no-repeat; /* Prevent image from repeating */
+  background-size: cover; /* Cover the entire container */
+  height: 400px; /* Adjust the height as needed */
+}
+
+.hero-text h2{
+  color: var(--secondary-color);
+  font-family: var(--font-secondary);
+}
+
+.container-box{
+  background-color: var(--primary-color);
+}
+
+.intro{
+  padding: 30px 0;
+  display: flex;
+  justify-content: center;
+}
+
+.block{
+  width: 40%;
+  padding: 20px;
+}
+
+.block h2{
+  color: var(--black-color);
+  font-family: var(--font-secondary);
+}
+
+.block p{
+  color: var(--black-color);
+  font-family:var(--font-base);
+}
