@@ -77,17 +77,17 @@ header{
   justify-content: center;
 }
 
-.block{
-  width: 40%;
-  padding: 20px;
+#searchForm {
+  align-items: center;
+  text-align:center;
+  justify-content: center;
+  
 }
 
-.block h2{
-  color: var(--black-color);
-  font-family: var(--font-secondary);
+#searchQuery {
+  transition: all 0.5s ease;
 }
-
-.block p{
-  color: var(--black-color);
-  font-family:var(--font-base);
+.searchAlert{
+  border-color:red!important;
+  transition: all 0.5s ease;
 }

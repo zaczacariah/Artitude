@@ -57,133 +57,43 @@
     </section>
     <section class="search">
       <div class="columns max-width is-centered has-text-centered py-5">
-        <div class="column">
+        <div class="column is-centered has-text-centered is-half">
           <h2 class="is-size-1 has-text-centered">Artwork Search</h2>
-          <input class="filter" type="text" placeholder="Vincent Van Gogh">
-          <a id="search">Search</a>
+         
+            <div class="field has-addons" id="searchForm">
+              <div class="control">
+                <input class="input" type="text" id="searchQuery" placeholder="Pablo Picasso">
+              </div>
+              <div class="control">
+                <a class="button is-info" type="submit" id="submit">
+                  Search
+                </a>
+              </div>
+            </div>
+        
         </div>
       </div>
 
-      <div class="columns max-width is-centered py-5">
-        <div class="columns is-multiline result-box">
-          <!-- Search Cards Here -->
-          <div class="column is-2-desktop is-multiline">
-            <div class="card">
-              <div class="card-image">
-                <figure class="image is-1by1">
-                  <img class="artwork" src="./assets/images/VVG Portrait.jpeg" alt="Placeholder image">
-                </figure>
-              </div>
-              <div class="card-content">
-                <div class="media">
-                  <div class="media-content">
-                    <p class="title is-5 artistName">Vincent Van Gogh</p>
+      <div class="columns is-multiline is-centered py-5 mx-5" id="searchResults">
+        
+          <!-- <div class="column is-one-quarter">
+                <div class="card">
+                  <div class="card-image">
+                    <figure class="image is-1by1">
+                      <img class="artwork" src="./assets/images/VVG Portrait.jpeg" alt="Placeholder image">
+                    </figure>
                   </div>
-                </div>
-              </div>
-            </div>
-          </div>
+                  <div class="card-content ">
+                    <div class="media">
+                      <div class="media-content">
+                        <p class="title is-5 artistName">Vincent Van Gogh</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>  
+          </div>  -->
 
-          <div class="column is-2-desktop">
-            <div class="card">
-              <div class="card-image">
-                <figure class="image is-1by1">
-                  <img class="artwork" src="./assets/images/VVG Portrait.jpeg" alt="Placeholder image">
-                </figure>
-              </div>
-              <div class="card-content">
-                <div class="media">
-                  <div class="media-content">
-                    <p class="title is-5 artistName">Vincent Van Gogh</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="column is-2-desktop">
-            <div class="card">
-              <div class="card-image">
-                <figure class="image is-1by1">
-                  <img class="artwork" src="./assets/images/VVG Portrait.jpeg" alt="Placeholder image">
-                </figure>
-              </div>
-              <div class="card-content">
-                <div class="media">
-                  <div class="media-content">
-                    <p class="title is-5 artistName">Vincent Van Gogh</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="column is-2-desktop">
-            <div class="card">
-              <div class="card-image">
-                <figure class="image is-1by1">
-                  <img class="artwork" src="./assets/images/VVG Portrait.jpeg" alt="Placeholder image">
-                </figure>
-              </div>
-              <div class="card-content">
-                <div class="media">
-                  <div class="media-content">
-                    <p class="title is-5 artistName">Vincent Van Gogh</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="column is-2-desktop">
-            <div class="card">
-              <div class="card-image">
-                <figure class="image is-1by1">
-                  <img class="artwork" src="./assets/images/VVG Portrait.jpeg" alt="Placeholder image">
-                </figure>
-              </div>
-              <div class="card-content">
-                <div class="media">
-                  <div class="media-content">
-                    <p class="title is-5 artistName">Vincent Van Gogh</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="column  is-2-desktop">
-            <div class="card">
-              <div class="card-image">
-                <figure class="image is-1by1">
-                  <img class="artwork" src="./assets/images/VVG Portrait.jpeg" alt="Placeholder image">
-                </figure>
-              </div>
-              <div class="card-content">
-                <div class="media">
-                  <div class="media-content">
-                    <p class="title is-5 artistName">Vincent Van Gogh</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="column is-2-desktop">
-            <div class="card">
-              <div class="card-image">
-                <figure class="image is-1by1">
-                  <img class="artwork" src="./assets/images/VVG Portrait.jpeg" alt="Placeholder image">
-                </figure>
-              </div>
-              <div class="card-content">
-                <div class="media">
-                  <div class="media-content">
-                    <p class="title is-5 artistName">Vincent Van Gogh</p>
-                  </div>
-                </div>
-              </div>
-            </div>
+      </div>
 
 
     </section>
