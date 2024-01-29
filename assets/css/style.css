@@ -22,7 +22,7 @@ body{
   margin:0;
 }
 
-.level {
+/* .level {
   background-color: var(--primary-color);
   height: 80px;
   padding: 0;
@@ -39,13 +39,17 @@ body{
 }
 .level:not(:last-child){
   margin: 0; /* Add this line to reset margin */
+
+
+header{
+  background: var(--primary-color);
 }
 
-.hero-image{
+#hero{
   background-image: url(../images/hero.png);
   background-repeat: no-repeat; /* Prevent image from repeating */
   background-size: cover; /* Cover the entire container */
-  height: 400px; /* Adjust the height as needed */
+
 }
 
 .hero-text h2{
@@ -53,8 +57,18 @@ body{
   font-family: var(--font-secondary);
 }
 
-.container-box{
+#info{
   background-color: var(--primary-color);
+}
+
+.info-image{
+  border-radius: 10px;
+  max-width:400px;
+  max-height:250px;
+}
+
+.search{
+  background: var(--secondary-color);
 }
 
 .intro{
