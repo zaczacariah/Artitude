@@ -1,5 +1,40 @@
 
-
+    // Functions to open and close a modal
+    function openModal($el) {
+      $el.addClass('is-active');
+      console.log("CLICK");
+    }
+  
+    function closeModal($el) {
+      $($el).removeClass('is-active');
+    }
+  
+    function closeAllModals() {
+      closeModal($('.modal'));
+    }
+  
+    // Add a click event on buttons to open a specific modal
+    $('.js-modal-trigger').each(() => {
+      const trigger = $('.js-modal-trigger');
+      const modal = $('.modal');
+        
+      trigger.on('click', () => {
+        openModal(modal);
+      });
+    });
+  
+    // // Add a click event on various child elements to close the parent modal
+    $('.modal-close').on('click', () => {
+        closeModal($('.modal'));
+    });
+  
+    // Add a keyboard event to close all modals
+    $('html').on('keydown', (event) => {
+      if(event.key === "Escape") {
+        closeAllModals();
+      }
+    });
+ 
 
 async function getArt(search) {
 
@@ -7,18 +42,13 @@ async function getArt(search) {
     // Artist name - for Wiki api
     //image_id, country of origin, title, alt-text
 
-
-    search = 'cats'; //FIXED FOR NOW
-
+    search = 'cats'; //FIXED
     var url = `https://api.artic.edu/api/v1/artworks/search?q=${search}&fields=id,artist_title,image_id,place_of_origin,title`;
 
     // Api Call
     var response = await fetch(url);
     if(response.status != 200){
-
         throw new Error("Unsuccesful Artwork Search"); 
-
-
     }
 
     var data = await response.json();
@@ -30,9 +60,7 @@ async function getArt(search) {
     }
 
 }
-
 // getArt();
-
 
 // Generate Tiles
 function createArtTile({ id, artist_title, image_id, place_of_origin, title }){
@@ -46,7 +74,7 @@ async function getArtistInfo(artist_title){
 
     var url = `https://en.wikipedia.org/api/rest_v1/page/summary/${artist_title}`;
 
-    var response = await fetch(url);
+    var response = await fetch(url); 
    
     if(response.status != 200){
         throw new Error("Unsuccesful Wiki"); 
@@ -56,4 +84,3 @@ async function getArtistInfo(artist_title){
     return data.extract;
 }
 getArtistInfo('Pablo Picasso');
-
