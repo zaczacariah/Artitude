@@ -7,13 +7,18 @@ async function getArt(search) {
     // Artist name - for Wiki api
     //image_id, country of origin, title, alt-text
 
+
     search = 'cats'; //FIXED FOR NOW
+
     var url = `https://api.artic.edu/api/v1/artworks/search?q=${search}&fields=id,artist_title,image_id,place_of_origin,title`;
 
     // Api Call
     var response = await fetch(url);
     if(response.status != 200){
-        throw new Error("Unsuccesful"); 
+
+        throw new Error("Unsuccesful Artwork Search"); 
+
+
     }
 
     var data = await response.json();
@@ -25,7 +30,9 @@ async function getArt(search) {
     }
 
 }
-getArt();
+
+// getArt();
+
 
 // Generate Tiles
 function createArtTile({ id, artist_title, image_id, place_of_origin, title }){
@@ -35,7 +42,18 @@ function createArtTile({ id, artist_title, image_id, place_of_origin, title }){
 
 }
 
-// async function getArtistInfo(artist_title){
+async function getArtistInfo(artist_title){
 
-//     var url =
-// }
+    var url = `https://en.wikipedia.org/api/rest_v1/page/summary/${artist_title}`;
+
+    var response = await fetch(url);
+   
+    if(response.status != 200){
+        throw new Error("Unsuccesful Wiki"); 
+    }
+
+    var data = await response.json();
+    return data.extract;
+}
+getArtistInfo('Pablo Picasso');
+
