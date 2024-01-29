@@ -12,41 +12,62 @@
   </head>
   <body>
 
-    <header class="level">
-      <p class="level-item has-text-centered">
-        <img src="./assets/images/icon.png" alt="" class="image is-48x48">
-        <a class="header is-size-3"> Artitude</a>
-
-      </p>
+    <header class="columns is-centered is-vcentered">
+      <div  class="column is-half has-text-centered is-centered p-0 m-0">
+        <img src="./assets/images/icon.png" alt="" class="image is-32x32">
+        <a class="is-size-3">Artitude</a>
+      </div>
+      
     </header>
-    <div class="hero-image">
-      <div class="hero-text">
-        <h2 class="is-size-1 has-text-centered py-6">Discover Unique International Art</h2>
-        <button class="button is-white">Explore Now</button>
+    <div id="hero" class="columns">
+      <div class="column">
+        <div class="columns max-width is-centered">
+          <div class="column">
+            <h2 class="is-size-1 has-text-centered has-text-white py-6">Discover Unique International Art</h2>
+          </div>
+        </div>
+        <div class="columns max-width is-centered my-4">
+          <div class="column has-text-centered is-centered is-half">
+            <button class="button is-white">Explore Now</button>
+          </div>
+         
+        </div>
+       
+      </div>
       </div>
     </div>
-    <section class="container-box">
-      <article class="intro">
-        <div class="block">
-          <h2 class="is-size-5">Search Through Our Database of Art</h2>
+    <section id="info" class="columns max-width is-centered py-5">
+      <div class="column is-two-thirds">
+        <div class="columns columns max-width is-vcentered">
+        <div class="column has-text-left has-text-black px-5 is-vcentered">
+          <h2 class="is-size-5 p-0 m-0">Search Through Our Database of Art</h2>
           <br>
-          <p>Welcome to Artitude, your digital gateway to a world of art and creativity. 
+          <p class="is-vcentered">Welcome to Artitude, your digital gateway to a world of art and creativity. 
           Attitude showcases a diverse and vibrant collection of artworks, 
           offering you a unique window into the rich tapestry of global artistry. 
           Each piece of art displayed is accompanied by insightful information about the artist 
           and their country of origin, bringing you closer to the heart and soul of their work.</p>
         </div>
-        <div class="block">
-          <img class="image"src="./assets/images/1_EVbrtDK4ga9IfcfdPsa6_Q.webp" alt="artwork">
+        <div class="column has-text-centered px-5">
+          <img class="info-image" src="./assets/images/1_EVbrtDK4ga9IfcfdPsa6_Q.webp" alt="artwork">
         </div>
+      </div>
+      </div>
       </article>
     </section>
-    <section class="container">
+    <section class="search">
+      <div class="columns max-width is-centered has-text-centered py-5">
+        <div class="column">
       <h2 class="is-size-1 has-text-centered">Artwork Search</h2>
-      <input class="fliter" type="text" placeholder="Vincent Van Gogh">
+      <input class="filter" type="text" placeholder="Vincent Van Gogh">
       <a id="search">Search</a>
+    </div>
+      </div>
+      <div class="columns max-width is-centered py-5">
         <div class="result-box">
+          <!-- Search Cards Here -->
         </div>
+      </div>
     </section>
   </body>
 </html>
