@@ -37,7 +37,24 @@
         closeAllModals();
         }
     });
- 
+    
+$('#searchQuery').on('keydown', (event) => {
+    if(event.key === "Enter") {
+    // If Empty - show message and border color
+    if(!searchQuery.val()){
+        searchQuery.attr('placeholder', 'Please Enter');
+        searchQuery.addClass('searchAlert');
+        setInterval(() => {
+            searchQuery.attr('placeholder', 'Vincent Van Gogh');
+            searchQuery.removeClass('searchAlert');
+
+        }, 3500);
+    }
+
+    getArt(searchQuery.val());
+    searchQuery.val('');
+}
+});
 
 
 var submit = $('#submit');
