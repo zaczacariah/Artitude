@@ -5,7 +5,7 @@
 // Functions to open and close a modal
     function openModal($el) {
         $el.addClass('is-active');
-        console.log("CLICK");
+        
     }
 
     function closeModal($el) {
@@ -58,7 +58,7 @@ submit.on('click', function () {
     }
 
 
-    getArt(searchQuery);
+    getArt(searchQuery.val());
     searchQuery.val('');
 
 })
@@ -71,21 +71,28 @@ async function getArt(search) {
     // Artist name - for Wiki api
     //image_id, country of origin, title, alt-text
 
-    search = 'cats'; //FIXED
+    
     var url = `https://api.artic.edu/api/v1/artworks/search?q=${search}&fields=id,artist_title,image_id,place_of_origin,title`;
 
     // Api Call
-    var response = await fetch(url);
-    if(response.status != 200){
-        throw new Error("Unsuccesful Artwork Search"); 
+    try{
+        var response = await fetch(url);
+
+        if(response.status != 200){
+            throw new Error("Unsuccesful Artwork Search"); 
+        }
+    } catch(error){
+        console.log('shit');
     }
+   
 
     var data = await response.json();
     var artworks = data.data;
-
+    $('#searchResults').html('');
     // Create the Tiles for each piece
     for(var index = 0; index < artworks.length; index++){
         var card = createArtTile(artworks[index]);
+   
         $('#searchResults').append(card);
     }
 
@@ -96,12 +103,13 @@ async function getArt(search) {
 function createArtTile({ id, artist_title, image_id, place_of_origin, title }){
     var col = $('<div>').addClass('column is-one-quarter');
     var card = $('<div>').addClass('card');
-
-     // Using jquery data function to add data to element for the sake of launching modal
-    card.data('place_of_origin', place_of_origin);
-    card.data('id', id);
-    card.data('Artist', artist_title);
-    card.attr('id', `artwork-${id}`);
+        
+    col.on('click', (event) => {
+       
+        populateModal(event.currentTarget);
+        openModal($('.modal'));
+    })
+    
 
     var cardImage = $('<div>').addClass('card-image');
     var figure = $('<figure>').addClass('image is-1by1');
@@ -110,6 +118,14 @@ function createArtTile({ id, artist_title, image_id, place_of_origin, title }){
     imgUrl = `https://www.artic.edu/iiif/2/${image_id}/full/843,/0/default.jpg`;
     img.attr('src', imgUrl);
     img.attr('alt', title);
+
+     // Using jquery data function to add data to element for the sake of launching modal
+     col.data('place_of_origin', place_of_origin);
+     col.data('id', id);
+     col.data('artist', artist_title);
+   
+     col.data('imageUrl', imgUrl);
+     col.attr('id', `artwork-${id}`);
 
     figure.append(img);
     cardImage.append(figure);
@@ -133,16 +149,47 @@ function createArtTile({ id, artist_title, image_id, place_of_origin, title }){
 }
 
 async function getArtistInfo(artist_title){
-
-    var url = `https://en.wikipedia.org/api/rest_v1/page/summary/${artist_title}`;
+    if(artist_title == null || artist_title == undefined || artist_title == ''){
+        return '';
+    }
+    var artist = artist_title.replace(/ /g, "_");
+   
+    var url = `https://en.wikipedia.org/api/rest_v1/page/summary/${artist}`;
 
     var response = await fetch(url); 
-   
+    
+    if(response.status == 404){
+        'No Wikipedia Information for this Artist or Period.'
+    }
     if(response.status != 200){
-        throw new Error("Unsuccesful Wiki"); 
+       return 'No Wikipedia Information for this Artist or Period.'
     }
 
     var data = await response.json();
     return data.extract;
 }
 getArtistInfo('Pablo Picasso');
+
+
+async function populateModal(card) {
+    card = $(card);
+    var country = $('#modal_country');
+    var artistHeader = $('#modal_artist');
+    var wiki = $('#modal_wikiInfo');
+    // Clear Existing Data
+    country.text('');
+    artistHeader.text('');
+    wiki.text('');
+
+    $('#modal_art').attr('src', card.data('imageUrl'));
+
+    country.text(card.data('place_of_origin'));
+    var artist = card.data('artist');
+    artistHeader.text(artist);
+
+    // Get wiki info
+    var exerpt = await getArtistInfo(artist);
+
+    wiki.text(exerpt);
+
+}

@@ -91,7 +91,7 @@ header{
 .searchAlert{
   border-color:red!important;
   transition: all 0.5s ease;
-
+}
 
 .block p{
   color: var(--black-color);
@@ -103,4 +103,9 @@ header{
   max-width:250px;
   max-height:250px;
 
+}
+
+.modal-content{
+  top: 50%;
+    transform: translateY(-50%);
 }
