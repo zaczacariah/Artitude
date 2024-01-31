@@ -97,27 +97,39 @@
     </section>
 
     <!-- Modal -->
-    <div id="modal-js" class="modal is-active">
-      <div class="modal-background"></div>
+    <div id="modal-js" class="modal">
+      <div class="modal-background">
     
       <div class="modal-content">
         <div class="box">
           <!-- Your content -->
-        <div class="columns is-centered ">
-          <img class="image column is-gapless modal-image" src="./assets/images/VVG Portrait.jpeg" alt="Artwork">
-          <img class="image column is-gapless modal-image" src="./assets/images/Italy.png" alt="country of Artwork">
-        </div>
+        <div class="columns is-centered">
+          
+          <img class="image column is-gapless modal-image" id="modal_art" src="./assets/images/VVG Portrait.jpeg" alt="Artwork">
+          
          
-          <h2 class="title is-size-3 has-text-centered">Vincent Van Gogh</h3>
-          <h4 class="is-size-4 has-text-centered">Portrait</h5>
-            <h4 class="is-size-5 has-text-centered">Italy</h5>
-          <p>
+          
+            <img class="image column is-gapless modal-image" src="./assets/images/Italy.png" alt="country of Artwork">
+          
+        </div>
+        <div class="columns is-centered">
+          <div class="column has-text-centered">
+            <h2 class="title is-size-3 " id="modal_artist">Vincent Van Gogh</h2>
+          <!-- <h4 class="is-size-4 has-text-centered" >Portrait</h4> -->
+            <h4 id="modal_country" class="is-size-5 has-text-centered">Italy</h4>
+          <p id="modal_wikiInfo">
             Lorem ipsum, dolor sit amet consectetur adipisicing elit. Reiciendis modi repellendus excepturi culpa ducimus repudiandae. Ipsum autem maiores deleniti excepturi ratione? Assumenda possimus exercitationem at porro ipsam iusto commodi quis?
           </p>
+          </div>
         </div>
-      </div>
+        </div>
+         
+          
+        </div>
+      
     
       <button class="modal-close is-large" aria-label="close"></button>
+    </div>
     </div>
 
     <script src="./assets/js/script.js"></script>
