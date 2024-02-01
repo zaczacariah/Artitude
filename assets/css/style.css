@@ -45,6 +45,10 @@ header{
   background: var(--primary-color);
 }
 
+header p{
+  color: var(--secondary-color);
+}
+
 #hero{
   background-image: url(../images/hero.png);
   background-repeat: no-repeat; /* Prevent image from repeating */
