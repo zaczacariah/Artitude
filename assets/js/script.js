@@ -193,15 +193,20 @@ async function populateModal(card) {
     var country = $('#modal_country');
     var artistHeader = $('#modal_artist');
     var wiki = $('#modal_wikiInfo');
+    var mapApi_KEY = 'AIzaSyAdWZbQXhp4rVAbzbmtXFuBlZ8-Q2I488k';
+    var countryName = card.data('place_of_origin');
+    var mapApiUrl = `https://maps.googleapis.com/maps/api/staticmap?center=${countryName}&zoom=6&scale=1&size=400x400&key=${mapApi_KEY}`;
+
     // Clear Existing Data
     country.text('');
     artistHeader.text('');
     wiki.text('');
 
     $('#modal_art').attr('src', card.data('imageUrl'));
+    $('#modal_art_map').attr('src', mapApiUrl);
 
-    country.text(card.data('place_of_origin'));
-    var artist = card.data('artist');
+    country.text(countryName);
+    var artist = card.data('artist');   
     artistHeader.text(artist);
 
     // Get wiki info
