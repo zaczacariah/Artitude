@@ -120,7 +120,8 @@ async function getArt(search) {
 function createArtTile({ id, artist_title, image_id, place_of_origin, title }){
     var col = $('<div>').addClass('column is-one-quarter');
     var card = $('<div>').addClass('card');
-        
+    
+    // Provide eventlistener to each card (outer column)
     col.on('click', (event) => {
        
         populateModal(event.currentTarget);
@@ -144,6 +145,7 @@ function createArtTile({ id, artist_title, image_id, place_of_origin, title }){
      col.data('imageUrl', imgUrl);
      col.attr('id', `artwork-${id}`);
 
+    // Append all the elements of each card together
     figure.append(img);
     cardImage.append(figure);
     card.append(cardImage);
@@ -165,16 +167,20 @@ function createArtTile({ id, artist_title, image_id, place_of_origin, title }){
     return col;
 }
 
+// Handle acquiring Artist info from Wikipedia 
 async function getArtistInfo(artist_title){
+    //In the event we don't have a title return empty string
     if(artist_title == null || artist_title == undefined || artist_title == ''){
         return '';
     }
-    var artist = artist_title.replace(/ /g, "_");
+    
+    var artist = artist_title.replace(/ /g, "_"); //Replace spaces with underscores
    
     var url = `https://en.wikipedia.org/api/rest_v1/page/summary/${artist}`;
 
     var response = await fetch(url); 
     
+    // If nothing is return No info message
     if(response.status == 404){
         'No Wikipedia Information for this Artist or Period.'
     }
@@ -185,17 +191,19 @@ async function getArtistInfo(artist_title){
     var data = await response.json();
     return data.extract;
 }
-getArtistInfo('Pablo Picasso');
 
 
+// Handle populating modal with selected artwork informatin
 async function populateModal(card) {
     card = $(card);
     var country = $('#modal_country');
     var artistHeader = $('#modal_artist');
     var wiki = $('#modal_wikiInfo');
+
+    // Google maps api key (whilst bad for exposure we don't have backend support for env variables yet)
     var mapApi_KEY = 'AIzaSyAdWZbQXhp4rVAbzbmtXFuBlZ8-Q2I488k';
     var countryName = card.data('place_of_origin');
-    var mapApiUrl = `https://maps.googleapis.com/maps/api/staticmap?center=${countryName}&zoom=6&scale=1&size=400x400&key=${mapApi_KEY}`;
+    var mapApiUrl = `https://maps.googleapis.com/maps/api/staticmap?center=${countryName}&zoom=6&scale=1&size=400x400&key=${mapApi_KEY}`; 
 
     // Clear Existing Data
     country.text('');
@@ -203,7 +211,7 @@ async function populateModal(card) {
     wiki.text('');
 
     $('#modal_art').attr('src', card.data('imageUrl'));
-    $('#modal_art_map').attr('src', mapApiUrl);
+    $('#modal_art_map').attr('src', mapApiUrl); //use apiurl as src
 
     country.text(countryName);
     var artist = card.data('artist');   
